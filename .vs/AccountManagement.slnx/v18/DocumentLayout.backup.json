@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|c:\\users\\user\\documents\\internship\\c#\\accountmanagement\\accountmanagement\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|solutionrelative:accountmanagement\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|c:\\users\\user\\documents\\internship\\c#\\accountmanagement\\accountmanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|solutionrelative:accountmanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClientsController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\ClientsController.cs",
+              "RelativeDocumentMoniker": "AccountManagement\\Controllers\\ClientsController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\ClientsController.cs",
+              "RelativeToolTip": "AccountManagement\\Controllers\\ClientsController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T14:53:45.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "AccountManagement\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "AccountManagement\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T14:53:38.788Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
