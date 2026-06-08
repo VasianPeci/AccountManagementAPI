@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ujfKy3gekes=",
+  "dgSpecHash": "RXaLWMNjF7E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\accountmanagement\\AccountManagement.csproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\AccountManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
@@ -63,9 +63,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'AutoMapper' 12.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
-      "projectPath": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\accountmanagement\\AccountManagement.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\AccountManagement.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\accountmanagement\\AccountManagement.csproj",
+      "filePath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\AccountManagement.csproj",
       "libraryId": "AutoMapper",
       "targetGraphs": [
         "net10.0"

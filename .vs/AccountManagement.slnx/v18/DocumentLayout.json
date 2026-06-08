@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\",
+  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|c:\\users\\user\\documents\\internship\\c#\\accountmanagement\\accountmanagement\\controllers\\bankaccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|solutionrelative:accountmanagement\\controllers\\bankaccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\LoginResponseDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AccountManagement\\DTO\\LoginResponseDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|c:\\users\\user\\documents\\internship\\c#\\accountmanagement\\accountmanagement\\dto\\addbankaccountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|solutionrelative:accountmanagement\\dto\\addbankaccountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\LoginRequestDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AccountManagement\\DTO\\LoginRequestDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|c:\\users\\user\\documents\\internship\\c#\\accountmanagement\\accountmanagement\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6E08674-55F5-4899-9C97-E9E1968E6C3D}|AccountManagement\\AccountManagement.csproj|solutionrelative:accountmanagement\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\RegisterRequestDtocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AccountManagement\\DTO\\RegisterRequestDtocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AccountManagement\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddBankAccountDto.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\DTO\\AddBankAccountDto.cs",
-              "RelativeDocumentMoniker": "AccountManagement\\DTO\\AddBankAccountDto.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\DTO\\AddBankAccountDto.cs",
-              "RelativeToolTip": "AccountManagement\\DTO\\AddBankAccountDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "LoginResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\LoginResponseDto.cs",
+              "RelativeDocumentMoniker": "AccountManagement\\DTO\\LoginResponseDto.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\LoginResponseDto.cs",
+              "RelativeToolTip": "AccountManagement\\DTO\\LoginResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T15:00:28.21Z",
+              "WhenOpened": "2026-06-06T11:49:39.059Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BankAccountsController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\BankAccountsController.cs",
-              "RelativeDocumentMoniker": "AccountManagement\\Controllers\\BankAccountsController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\BankAccountsController.cs",
-              "RelativeToolTip": "AccountManagement\\Controllers\\BankAccountsController.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAgwFwAAABlAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "AccountManagement\\DTO\\LoginRequestDto.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\LoginRequestDto.cs",
+              "RelativeToolTip": "AccountManagement\\DTO\\LoginRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:58:57.812Z",
+              "WhenOpened": "2026-06-06T11:49:30.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ClientsController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\ClientsController.cs",
-              "RelativeDocumentMoniker": "AccountManagement\\Controllers\\ClientsController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\internship\\c#\\AccountManagement\\AccountManagement\\Controllers\\ClientsController.cs",
-              "RelativeToolTip": "AccountManagement\\Controllers\\ClientsController.cs",
-              "ViewState": "AgIAAJcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Title": "RegisterRequestDtocs.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\RegisterRequestDtocs.cs",
+              "RelativeDocumentMoniker": "AccountManagement\\DTO\\RegisterRequestDtocs.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\DTO\\RegisterRequestDtocs.cs",
+              "RelativeToolTip": "AccountManagement\\DTO\\RegisterRequestDtocs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T14:53:45.048Z",
+              "WhenOpened": "2026-06-06T11:48:19.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\Program.cs",
+              "RelativeDocumentMoniker": "AccountManagement\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\Program.cs",
+              "RelativeToolTip": "AccountManagement\\Program.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T10:47:03.392Z",
               "EditorCaption": ""
             }
           ]

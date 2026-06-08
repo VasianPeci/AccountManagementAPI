@@ -24,6 +24,17 @@ builder.Services.AddDbContext<AccountManagementAuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AccountManagementAuthConnectionString"))
 );
 
+// React Connection
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Repositories
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
@@ -93,6 +104,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors("AllowReactApp");
 
 app.MapControllers();
 
