@@ -34,9 +34,7 @@ function Login() {
             localStorage.setItem("token", result.jwtToken);
 
             alert("Login Successful!");
-            console.log("JWT:", result.jwtToken);
-            navigate("/");
-            window.location.reload();
+            window.location.href = "/";
         } catch (error) {
             alert(error.message);
         }

@@ -93,7 +93,7 @@ namespace AccountManagement.Controllers
             //    });
             //}
 
-            var clientAccountReportDtos = mapper.Map<List<AccountReportDto>>(bankAccounts);
+            var clientAccountReportDtos = mapper.Map<List<ClientAccountReportDto>>(bankAccounts);
 
             return Ok(clientAccountReportDtos);
         }

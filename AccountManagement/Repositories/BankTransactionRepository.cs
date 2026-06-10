@@ -15,6 +15,16 @@ namespace AccountManagement.Repositories
 
         public async Task<BankTransaction> CreateAsync(BankTransaction bankTransaction)
         {
+            var bankAccount = await dbContext.BankAccounts.FirstOrDefaultAsync(x => x.Id == bankTransaction.BankAccountId);
+
+            if (bankAccount != null)
+            {
+                bankAccount.Balance = bankTransaction.Action == 0
+                    ? bankAccount.Balance + bankTransaction.Amount
+                    : bankAccount.Balance - bankTransaction.Amount;
+                bankAccount.DateModified = DateTime.UtcNow;
+            }
+
             await dbContext.BankTransactions.AddAsync(bankTransaction);
             await dbContext.SaveChangesAsync();
 

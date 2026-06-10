@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\AccountManagement",
-    "\\AccountManagement\\DTO"
+    "\\AccountManagement\\Controllers",
+    "\\AccountManagement\\DTO",
+    "\\AccountManagement\\Repositories"
   ],
-  "SelectedNode": "\\AccountManagement\\DTO\\LoginResponseDto.cs",
+  "SelectedNode": "\\AccountManagement\\Repositories\\BankTransactionRepository.cs",
   "PreviewInSolutionExplorer": false
 }

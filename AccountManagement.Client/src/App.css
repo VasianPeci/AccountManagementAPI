@@ -2,7 +2,6 @@
   min-height: 100vh;
 }
 
-/* Navbar */
 
 nav {
   height: 70px;
@@ -24,7 +23,6 @@ nav a:hover {
 }
 
 
-/* Auth pages */
 
 form {
   width: 400px;
@@ -57,7 +55,16 @@ input {
   font-size: 16px;
 }
 
-input:focus {
+select {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: white;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
   outline: none;
   border-color: #38bdf8;
 }
@@ -83,7 +90,6 @@ button:hover {
 }
 
 
-/* Mobile */
 
 @media (max-width: 500px) {
   form {
@@ -98,6 +104,21 @@ button:hover {
   font-size: 14px;
 }
 
+.info-message,
+.error-message {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.info-message {
+  color: #475569;
+}
+
+.error-message {
+  color: #dc2626;
+}
+
 .secondary-button {
   background-color: #e2e8f0;
   color: #1e293b;
@@ -107,17 +128,17 @@ button:hover {
   background-color: #cbd5e1;
 }
 
-/* Dashboard */
 
 .dashboard {
   min-height: 100vh;
+  padding: 50px 20px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
-  gap: 30px;
+  gap: 24px;
 
   background-color: #f4f6f8;
 }
@@ -128,48 +149,184 @@ button:hover {
   font-weight: 700;
 }
 
-.dashboard button {
-  width: 180px;
-
-  background-color: #dc2626;
+.dashboard h2,
+.dashboard h3 {
+  margin: 0;
+  color: #1e293b;
 }
 
-.dashboard button:hover {
-  background-color: #b91c1c;
+.client-banking-panel,
+.staff-dashboard-panel,
+.account-panel {
+  width: min(760px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-
-/* Dashboard card */
-
-.dashboard::before {
-  content: "Welcome";
-  
-  width: 400px;
-  padding: 40px;
-
+.client-banking-panel,
+.staff-dashboard-panel {
   background-color: white;
-
-  border-radius: 16px;
-
-  text-align: center;
-
-  font-size: 24px;
-  font-weight: bold;
-  color: #334155;
-
+  border-radius: 12px;
+  padding: 28px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+.dashboard-form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
 
-/* Mobile */
+.account-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.account-stats div,
+.staff-stats div,
+.staff-row {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  background-color: #f8fafc;
+}
+
+.account-stats span,
+.staff-stats span,
+.staff-row span {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.account-stats strong,
+.staff-stats strong,
+.staff-row strong {
+  display: block;
+  color: #1e293b;
+  overflow-wrap: anywhere;
+}
+
+.staff-dashboard-panel {
+  width: min(1100px, 100%);
+}
+
+.staff-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.staff-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.staff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.staff-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr)) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.account-management-row {
+  grid-template-columns: minmax(140px, 1.1fr) repeat(4, minmax(100px, 1fr)) auto auto auto;
+}
+
+.account-management-row input,
+.account-management-row select {
+  width: 100%;
+  min-width: 0;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+  font-weight: 700;
+}
+
+.checkbox-field input {
+  width: auto;
+}
+
+.transaction-mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.transaction-mode button,
+.dashboard-actions .secondary-button {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.transaction-mode button.active,
+.dashboard-form button[type="submit"] {
+  background-color: #2563eb;
+  color: white;
+}
+
+.transaction-mode button:hover,
+.dashboard-actions .secondary-button:hover {
+  background-color: #cbd5e1;
+}
+
+.transaction-mode button.active:hover,
+.dashboard-form button[type="submit"]:hover {
+  background-color: #1d4ed8;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dashboard-actions button {
+  min-width: 130px;
+}
+
+
 
 @media (max-width: 500px) {
   .dashboard h1 {
     font-size: 26px;
     text-align: center;
   }
-
-  .dashboard::before {
-    width: 90%;
+  .client-banking-panel {
+    padding: 20px;
   }
+
+  .account-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-stats,
+  .staff-row,
+  .account-management-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.danger-button {
+  background-color: #dc2626;
+}
+
+.danger-button:hover {
+  background-color: #b91c1c;
 }

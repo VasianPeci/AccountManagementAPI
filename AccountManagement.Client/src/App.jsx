@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
 import "./App.css";
 import "./index.css";
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={ token ? (<Dashboard />) : (<Navigate to="/login" />) } />
         <Route path="/login" element={ token ? (<Navigate to="/" />) : (<Login />) }/>
         <Route  path="/register" element={ token ? (<Navigate to="/" />) : (<Register />)} />
+        <Route path="/settings" element={ token ? (<Settings />) : (<Navigate to="/login" />) } />
       </Routes>
     </BrowserRouter>
   );

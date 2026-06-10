@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using AccountManagement.Data;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -9,20 +10,32 @@ namespace AccountManagement.Repositories
     public class TokenRepository : ITokenRepository
     {
         private readonly IConfiguration configuration;
+        private readonly AccountManagementDbContext dbContext;
 
-        public TokenRepository(IConfiguration configuration)
+        public TokenRepository(IConfiguration configuration, AccountManagementDbContext dbContext)
         {
             this.configuration = configuration;
+            this.dbContext = dbContext;
         }
 
         public string CreateJWTToken(IdentityUser user, List<string> roles)
         {
+            var clientId = dbContext.Clients
+                .FirstOrDefault(client => client.UserId == user.Id)
+                ?.Id
+                .ToString();
+
             // CLAIMS
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Email, user.Email ?? string.Empty)
             };
+
+            if (!string.IsNullOrEmpty(clientId))
+            {
+                claims.Add(new Claim("clientId", clientId));
+            }
 
             foreach (var role in roles)
             {

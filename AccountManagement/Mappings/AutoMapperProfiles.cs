@@ -30,6 +30,18 @@ namespace AccountManagement.Mappings
                 .ForMember(dest => dest.Date,
                     opt => opt.MapFrom(src => src.DateCreated));
 
+            CreateMap<BankAccount, ClientAccountReportDto>()
+                .ForMember(dest => dest.AccountId,
+                    opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.AccountCode,
+                    opt => opt.MapFrom(src => src.Code))
+                .ForMember(dest => dest.AccountName,
+                    opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest => dest.Currency,
+                    opt => opt.MapFrom(src => src.CurrencyId))
+                .ForMember(dest => dest.CurrentBalance,
+                    opt => opt.MapFrom(src => src.Balance));
+
             CreateMap<Currency, CurrencyDto>().ReverseMap();
             CreateMap<Currency, AddCurrencyDto>().ReverseMap();
             CreateMap<Currency, UpdateCurrencyDto>().ReverseMap();

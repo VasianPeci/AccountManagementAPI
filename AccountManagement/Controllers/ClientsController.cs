@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using System.Text.Json;
 
 namespace AccountManagement.Controllers
@@ -40,36 +41,6 @@ namespace AccountManagement.Controllers
             var clients = await clientRepository.GetAllAsync();
 
             // Conversion from Client Domain Model to DTO
-
-            //var dtoClients = new List<ClientDto>();
-
-            //foreach (var client in clients)
-            //{
-            //    var user = await userManager.FindByIdAsync(client.UserId);
-
-            //    var roles = user != null
-            //        ? await userManager.GetRolesAsync(user)
-            //        : new List<string>();
-
-            //    var dto = new ClientDto()
-            //    {
-            //        Id = client.Id,
-
-            //        Username = user?.UserName,
-            //        Roles = roles.ToArray(),
-
-            //        FirstName = client.FirstName,
-            //        LastName = client.LastName,
-
-            //        Birthdate = client.Birthdate,
-            //        Phone = client.Phone,
-
-            //        DateCreated = client.DateCreated,
-            //        DateModified = client.DateModified
-            //    };
-
-            //    dtoClients.Add(dto);
-            //}
 
             var dtoClients = new List<ClientDto>();
 
@@ -109,29 +80,6 @@ namespace AccountManagement.Controllers
 
             // Conversion from Client Domain Model to DTO
 
-            //var user = await userManager.FindByIdAsync(client.UserId);
-
-            //var roles = user != null
-            //    ? await userManager.GetRolesAsync(user)
-            //    : new List<string>();
-
-            //var clientDto = new ClientDto()
-            //{
-            //    Id = client.Id,
-
-            //    Username = user?.UserName,
-            //    Roles = roles.ToArray(),
-
-            //    FirstName = client.FirstName,
-            //    LastName = client.LastName,
-
-            //    Birthdate = client.Birthdate,
-            //    Phone = client.Phone,
-
-            //    DateCreated = client.DateCreated,
-            //    DateModified = client.DateModified
-            //};
-
             // Base mapping
             var clientDto = mapper.Map<ClientDto>(client);
 
@@ -155,6 +103,37 @@ namespace AccountManagement.Controllers
         [Route("Register")]
         public async Task<IActionResult> CreateClient([FromBody] RegisterRequestDto dto)
         {
+            var requestedRole = dto.Roles?.FirstOrDefault()?.Trim();
+            var normalizedRequestedRole = requestedRole?.ToLowerInvariant();
+            var isAdminRegistration =
+                string.Equals(dto.FirstName?.Trim(), "admin", StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(dto.LastName?.Trim(), "admin", StringComparison.OrdinalIgnoreCase);
+            var roleToAssign = requestedRole;
+
+            if (isAdminRegistration)
+            {
+                var existingAdmins = await userManager.GetUsersInRoleAsync("Admin");
+
+                if (existingAdmins.Any())
+                {
+                    return BadRequest("Admin can only be registered once.");
+                }
+
+                roleToAssign = "Admin";
+            }
+            else if (normalizedRequestedRole == "client")
+            {
+                roleToAssign = "Client";
+            }
+            else if (normalizedRequestedRole == "auditor")
+            {
+                roleToAssign = "Auditor";
+            }
+            else
+            {
+                return BadRequest("Role must be Client or Auditor.");
+            }
+
             // Create identity first
 
             var user = new ApplicationUser
@@ -172,9 +151,9 @@ namespace AccountManagement.Controllers
 
             // Add roles to created identity
 
-            if (dto.Roles != null && dto.Roles.Any())
+            if (!string.IsNullOrEmpty(roleToAssign))
             {
-                var roleResult = await userManager.AddToRolesAsync(user, dto.Roles);
+                var roleResult = await userManager.AddToRoleAsync(user, roleToAssign);
 
                 if (!roleResult.Succeeded)
                 {
@@ -205,7 +184,7 @@ namespace AccountManagement.Controllers
         [HttpPost]
         [Route("{id:guid}")]
         [ValidateModel]
-        [Authorize(Roles = "Client, Auditor, Admin")]
+        [Authorize(Roles = "Client, Admin")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateClientRequestDto updateClientRequestDto)
         {
             if (!ModelState.IsValid)
@@ -220,6 +199,12 @@ namespace AccountManagement.Controllers
             if (clientDomainModel == null)
             {
                 return NotFound("Client not found");
+            }
+
+            if (!User.IsInRole("Admin") &&
+                clientDomainModel.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
+            {
+                return Forbid();
             }
 
             // Find and update identity linked to client
@@ -271,7 +256,7 @@ namespace AccountManagement.Controllers
         // Delete a client
         [HttpDelete]
         [Route("{id:guid}")]
-        [Authorize(Roles = "Client, Auditor, Admin")]
+        [Authorize(Roles = "Client, Admin")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             // Find client to delete
@@ -281,6 +266,12 @@ namespace AccountManagement.Controllers
             if (client == null)
             {
                 return NotFound("Client not found");
+            }
+
+            if (!User.IsInRole("Admin") &&
+                client.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
+            {
+                return Forbid();
             }
 
             // Delete identity linked to client

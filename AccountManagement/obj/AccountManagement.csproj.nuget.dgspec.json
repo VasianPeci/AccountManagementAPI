@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\AccountManagement.csproj": {}
+    "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\accountmanagement\\AccountManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\AccountManagement.csproj": {
+    "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\accountmanagement\\AccountManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\AccountManagement.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\accountmanagement\\AccountManagement.csproj",
         "projectName": "AccountManagement",
-        "projectPath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\AccountManagement.csproj",
+        "projectPath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\accountmanagement\\AccountManagement.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\AccountManagement\\obj\\",
+        "outputPath": "C:\\Users\\user\\Documents\\internship\\csharp\\AccountManagement\\accountmanagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

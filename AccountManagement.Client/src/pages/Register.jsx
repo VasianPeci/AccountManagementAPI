@@ -7,7 +7,7 @@ function Register() {
     const [formData, setFormData] = useState({
         username: "",
         password: "",
-        roles: ["Client"],
+        role: "Client",
         firstName: "",
         lastName: "",
         birthdate: "",
@@ -57,9 +57,22 @@ function Register() {
         e.preventDefault();
 
         if (!validateForm()) return;
+
+        const isAdminRegistration =
+            formData.firstName.trim().toLowerCase() === "admin" &&
+            formData.lastName.trim().toLowerCase() === "admin";
+        const registerData = {
+            username: formData.username,
+            password: formData.password,
+            roles: [isAdminRegistration ? "Admin" : formData.role],
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            birthdate: formData.birthdate,
+            phone: formData.phone,
+        };
         
         try {
-            await register(formData);
+            await register(registerData);
             alert("Registration successful!");
             navigate("/login");
         } catch (error) {
@@ -75,9 +88,18 @@ function Register() {
 
             <input type="password" placeholder="Password" value={formData.password} onChange={(e) => setFormData({...formData, password: e.target.value})}/>
 
+            <select value={formData.role} onChange={(e) => setFormData({...formData, role: e.target.value})}>
+                <option value="Client">Client</option>
+                <option value="Auditor">Auditor</option>
+            </select>
+
             <input type="text" placeholder="First name" value={formData.firstName} onChange={(e) => setFormData({...formData, firstName: e.target.value})}/>
 
             <input type="text" placeholder="Last name" value={formData.lastName} onChange={(e) => setFormData({...formData, lastName: e.target.value})}/>
+
+            {formData.firstName.trim().toLowerCase() === "admin" && formData.lastName.trim().toLowerCase() === "admin" && (
+                <p className="info-message">This registration will request the Admin role.</p>
+            )}
 
             <input type="date" value={formData.birthdate} onChange={(e) => setFormData({...formData, birthdate: e.target.value})}/>
 

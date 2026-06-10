@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AccountManagement.Controllers
 {
@@ -77,12 +78,30 @@ namespace AccountManagement.Controllers
         // Create bank account
         [HttpPost]
         [ValidateModel]
-        [Authorize(Roles = "Client, Auditor, Admin")]
+        [Authorize(Roles = "Client, Admin")]
         public async Task<IActionResult> Create(AddBankAccountDto addBankAccountDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (!User.IsInRole("Admin") &&
+                addBankAccountDto.ClientId.ToString() != User.FindFirstValue("clientId"))
+            {
+                return Forbid();
+            }
+
+            if (addBankAccountDto.Balance < 0)
+            {
+                return BadRequest("Balance cannot be negative.");
+            }
+
+            var existingAccounts = await bankAccountRepository.GetAllAsync();
+
+            if (existingAccounts.Any(account => account.ClientId == addBankAccountDto.ClientId && account.IsActive))
+            {
+                return BadRequest("Client already has a bank account.");
             }
 
             // Conversion from DTO to Domain Model
@@ -102,7 +121,7 @@ namespace AccountManagement.Controllers
         [HttpPut]
         [Route("{id:Guid}")]
         [ValidateModel]
-        [Authorize(Roles = "Client, Auditor, Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateBankAccountDto updateBankAccountDto)
         {
             if (!ModelState.IsValid)
@@ -131,7 +150,7 @@ namespace AccountManagement.Controllers
         // Delete bank account
         [HttpDelete]
         [Route("{id:Guid}")]
-        [Authorize(Roles = "Client, Auditor, Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             var bankAccountDomainModel = await bankAccountRepository.DeleteAsync(id);
