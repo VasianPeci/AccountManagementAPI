@@ -2,163 +2,202 @@
   min-height: 100vh;
 }
 
+:root {
+  --background: #eef3f8;
+  --surface: #ffffff;
+  --surface-soft: #f7fafc;
+  --text: #172033;
+  --muted: #667085;
+  --line: #d9e2ec;
+  --primary: #0f766e;
+  --primary-dark: #115e59;
+  --primary-soft: #d9f2ee;
+  --accent: #4f46e5;
+  --danger: #dc2626;
+  --danger-dark: #b91c1c;
+  --shadow: 0 18px 45px rgba(23, 32, 51, 0.12);
+  --small-shadow: 0 10px 26px rgba(23, 32, 51, 0.08);
+}
 
 nav {
-  height: 70px;
-  background-color: #1e293b;
+  height: 72px;
+  background-color: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(14px);
 }
 
 nav a {
-  color: white;
-  font-size: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 999px;
   transition: 0.2s;
 }
 
 nav a:hover {
-  color: #38bdf8;
+  color: var(--primary-dark);
+  background-color: var(--primary-soft);
 }
 
-
-
 form {
-  width: 400px;
-  margin: 80px auto;
-  padding: 35px;
-
-  background-color: white;
-  border-radius: 12px;
-
+  width: min(430px, calc(100% - 32px));
+  margin: 70px auto;
+  padding: 34px;
+  background-color: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(217, 226, 236, 0.9);
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  gap: 16px;
+  box-shadow: var(--shadow);
 }
 
 form h1 {
   text-align: center;
-  margin-bottom: 15px;
-  color: #1e293b;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 30px;
+  line-height: 1.1;
 }
 
-
-input {
-  padding: 14px;
-  border-radius: 8px;
-
-  border: 1px solid #cbd5e1;
-
-  font-size: 16px;
-}
-
+input,
 select {
-  padding: 14px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  background-color: white;
-  font-size: 16px;
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background-color: #fbfdff;
+  color: var(--text);
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+input::placeholder {
+  color: #98a2b3;
 }
 
 input:focus,
 select:focus {
   outline: none;
-  border-color: #38bdf8;
+  border-color: var(--primary);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.13);
 }
 
-
 button {
-  padding: 14px;
-
+  min-height: 46px;
+  padding: 12px 18px;
   border: none;
-  border-radius: 8px;
-
-  background-color: #2563eb;
+  border-radius: 10px;
+  background-color: var(--primary);
   color: white;
-
-  font-size: 16px;
-  font-weight: bold;
-
+  font-size: 15px;
+  font-weight: 800;
   transition: 0.2s;
 }
 
 button:hover {
-  background-color: #1d4ed8;
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
-
-
-@media (max-width: 500px) {
-  form {
-    width: 90%;
-    margin-top: 50px;
-  }
+button:active {
+  transform: translateY(0);
 }
 
 .auth-switch-text {
   text-align: center;
-  color: #64748b;
+  color: var(--muted);
   font-size: 14px;
+  margin-top: 4px;
 }
 
 .info-message,
 .error-message {
   margin: 0;
+  padding: 11px 12px;
+  border-radius: 10px;
   text-align: center;
   font-size: 14px;
 }
 
 .info-message {
-  color: #475569;
+  color: #1f5f59;
+  background-color: var(--primary-soft);
 }
 
 .error-message {
-  color: #dc2626;
+  color: #9f1239;
+  background-color: #ffe4e6;
 }
 
 .secondary-button {
-  background-color: #e2e8f0;
-  color: #1e293b;
+  background-color: #e9eef5;
+  color: var(--text);
 }
 
 .secondary-button:hover {
-  background-color: #cbd5e1;
+  background-color: #dbe4ef;
 }
 
+.danger-button {
+  background-color: var(--danger);
+}
+
+.danger-button:hover {
+  background-color: var(--danger-dark);
+}
 
 .dashboard {
   min-height: 100vh;
-  padding: 50px 20px;
-
+  padding: 46px 20px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
-  gap: 24px;
-
-  background-color: #f4f6f8;
+  gap: 22px;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.13), transparent 32rem),
+    linear-gradient(135deg, #f8fbff 0%, var(--background) 100%);
 }
 
 .dashboard h1 {
-  font-size: 36px;
-  color: #1e293b;
-  font-weight: 700;
+  width: min(1100px, 100%);
+  color: var(--text);
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 850;
+  letter-spacing: 0;
 }
 
 .dashboard h2,
 .dashboard h3 {
   margin: 0;
-  color: #1e293b;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.dashboard h2 {
+  font-size: 24px;
+}
+
+.dashboard h3 {
+  font-size: 18px;
 }
 
 .client-banking-panel,
 .staff-dashboard-panel,
 .account-panel {
-  width: min(760px, 100%);
+  width: min(780px, 100%);
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -166,59 +205,79 @@ button:hover {
 
 .client-banking-panel,
 .staff-dashboard-panel {
-  background-color: white;
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(217, 226, 236, 0.9);
+  border-radius: 18px;
   padding: 28px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow);
 }
 
 .dashboard-form {
   width: 100%;
   margin: 0;
   padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   box-shadow: none;
 }
 
-.account-stats {
+.dashboard-form h3 {
+  margin-bottom: 2px;
+}
+
+.account-stats,
+.staff-stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
+}
+
+.account-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.staff-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .account-stats div,
 .staff-stats div,
 .staff-row {
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 14px;
-  background-color: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 15px;
+  background-color: var(--surface-soft);
+  box-shadow: var(--small-shadow);
+}
+
+.account-stats div,
+.staff-stats div {
+  border-left: 4px solid var(--primary);
 }
 
 .account-stats span,
 .staff-stats span,
 .staff-row span {
   display: block;
-  color: #64748b;
-  font-size: 13px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
   margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .account-stats strong,
 .staff-stats strong,
 .staff-row strong {
   display: block;
-  color: #1e293b;
+  color: var(--text);
+  font-size: 16px;
   overflow-wrap: anywhere;
 }
 
 .staff-dashboard-panel {
-  width: min(1100px, 100%);
-}
-
-.staff-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  width: min(1160px, 100%);
 }
 
 .staff-section {
@@ -230,64 +289,76 @@ button:hover {
 .staff-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .staff-row {
   display: grid;
   grid-template-columns: repeat(5, minmax(120px, 1fr)) auto;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  background-color: var(--surface);
+}
+
+.staff-row button {
+  white-space: nowrap;
 }
 
 .account-management-row {
-  grid-template-columns: minmax(140px, 1.1fr) repeat(4, minmax(100px, 1fr)) auto auto auto;
+  grid-template-columns: minmax(150px, 1.1fr) repeat(4, minmax(105px, 1fr)) auto auto auto;
 }
 
 .account-management-row input,
 .account-management-row select {
-  width: 100%;
   min-width: 0;
 }
 
 .checkbox-field {
+  min-height: 46px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  color: #334155;
-  font-weight: 700;
+  color: #344054;
+  font-weight: 800;
+  background-color: #f6f8fb;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 12px;
 }
 
 .checkbox-field input {
   width: auto;
+  min-height: auto;
+  accent-color: var(--primary);
 }
 
 .transaction-mode {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 10px;
 }
 
 .transaction-mode button,
 .dashboard-actions .secondary-button {
-  background-color: #e2e8f0;
-  color: #1e293b;
+  background-color: #e9eef5;
+  color: var(--text);
 }
 
 .transaction-mode button.active,
 .dashboard-form button[type="submit"] {
-  background-color: #2563eb;
+  background-color: var(--accent);
   color: white;
 }
 
 .transaction-mode button:hover,
 .dashboard-actions .secondary-button:hover {
-  background-color: #cbd5e1;
+  background-color: #dbe4ef;
 }
 
 .transaction-mode button.active:hover,
 .dashboard-form button[type="submit"]:hover {
-  background-color: #1d4ed8;
+  background-color: #4338ca;
 }
 
 .dashboard-actions {
@@ -298,35 +369,58 @@ button:hover {
 }
 
 .dashboard-actions button {
-  min-width: 130px;
+  min-width: 135px;
 }
 
-
-
-@media (max-width: 500px) {
-  .dashboard h1 {
-    font-size: 26px;
-    text-align: center;
-  }
-  .client-banking-panel {
-    padding: 20px;
-  }
-
-  .account-stats {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 900px) {
+  .account-stats,
   .staff-stats,
   .staff-row,
   .account-management-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .staff-row button,
+  .account-management-row button,
+  .checkbox-field {
+    width: 100%;
   }
 }
 
-.danger-button {
-  background-color: #dc2626;
-}
+@media (max-width: 560px) {
+  form {
+    margin: 38px auto;
+    padding: 24px;
+  }
 
-.danger-button:hover {
-  background-color: #b91c1c;
+  form h1 {
+    font-size: 26px;
+  }
+
+  .dashboard {
+    padding: 30px 14px 44px;
+  }
+
+  .dashboard h1 {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .client-banking-panel,
+  .staff-dashboard-panel {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .account-stats,
+  .staff-stats,
+  .staff-row,
+  .account-management-row,
+  .transaction-mode {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
 }
