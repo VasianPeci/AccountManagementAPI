@@ -226,6 +226,29 @@ button:active {
   margin-bottom: 2px;
 }
 
+.stripe-topup-form {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.payment-panel {
+  width: min(520px, 100%);
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(217, 226, 236, 0.9);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow);
+}
+
+.payment-panel h1 {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}
+
 .account-stats,
 .staff-stats {
   display: grid;

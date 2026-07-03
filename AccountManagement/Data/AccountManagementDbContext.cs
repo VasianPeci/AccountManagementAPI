@@ -63,7 +63,12 @@ namespace AccountManagement.Data
             };
 
             // Seed DB with Currencies
-            modelBuilder.Entity<Currency>().HasData(currencies);           
+            modelBuilder.Entity<Currency>().HasData(currencies);
+
+            modelBuilder.Entity<BankTransaction>()
+                .HasIndex(transaction => transaction.StripePaymentId)
+                .IsUnique()
+                .HasFilter("[StripePaymentId] IS NOT NULL");
         }
     }
 }

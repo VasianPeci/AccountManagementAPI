@@ -35,6 +35,10 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Stripe Configuration
+Stripe.StripeConfiguration.ApiKey =
+    builder.Configuration["Stripe:SecretKey"];
+
 // Repositories
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();

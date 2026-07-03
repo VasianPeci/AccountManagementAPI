@@ -16,6 +16,7 @@ import ClientDashboard from "../Components/Dashboard/ClientDashboard";
 import resetSession from "../utils/resetSession";
 import getClientName from "../utils/Dashboard/getClientName";
 import getCurrencyCode from "../utils/Dashboard/getCurrencyCode";
+import { createTopUpSession } from "../api/paymentApi";
 
 function accountEditValues(account) {
   return {
@@ -49,6 +50,9 @@ function Dashboard() {
 
   const [transactionForm, setTransactionForm] = useState({
     action: "0",
+    amount: "",
+  });
+  const [topUpForm, setTopUpForm] = useState({
     amount: "",
   });
 
@@ -211,6 +215,42 @@ function Dashboard() {
     }
   }
 
+  async function startStripeTopUp(event) {
+    event.preventDefault();
+
+    const account = clientAccounts[0];
+    const amount = Number(topUpForm.amount);
+
+    if (!account) {
+      alert("Bank account was not loaded.");
+      return;
+    }
+
+    if (Number.isNaN(amount) || amount <= 0) {
+      alert("Amount must be greater than zero.");
+      return;
+    }
+
+    try {
+      setError("");
+      const session = await createTopUpSession({
+        bankAccountId: account.id,
+        currencyId: account.currencyId,
+        amount,
+      });
+
+      const checkoutUrl = session.url || session.Url;
+
+      if (!checkoutUrl) {
+        throw new Error("Stripe checkout URL was not returned.");
+      }
+
+      window.location.href = checkoutUrl;
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
   async function createAdminAccount(event) {
     event.preventDefault();
 
@@ -338,9 +378,12 @@ function Dashboard() {
           setAccountForm={setClientAccountForm}
           transactionForm={transactionForm}
           setTransactionForm={setTransactionForm}
+          topUpForm={topUpForm}
+          setTopUpForm={setTopUpForm}
           getCurrencyCode={(currencyId) => getCurrencyCode(currencies, currencyId)}
           createAccount={createClientAccount}
           createTransaction={createTransaction}
+          startStripeTopUp={startStripeTopUp}
         />
       )}
 

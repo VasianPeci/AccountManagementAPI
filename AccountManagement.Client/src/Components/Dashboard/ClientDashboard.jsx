@@ -5,9 +5,12 @@ function ClientDashboard({
   setAccountForm,
   transactionForm,
   setTransactionForm,
+  topUpForm,
+  setTopUpForm,
   getCurrencyCode,
   createAccount,
   createTransaction,
+  startStripeTopUp,
 }) {
   const account = accounts[0];
 
@@ -128,6 +131,23 @@ function ClientDashboard({
             <button type="submit">
               {transactionForm.action === "0" ? "Deposit" : "Withdraw"}
             </button>
+          </form>
+
+          <form className="dashboard-form stripe-topup-form" onSubmit={startStripeTopUp}>
+            <h3>Top Up With Stripe</h3>
+
+            <input
+              type="number"
+              min="1"
+              step="0.01"
+              placeholder="Amount"
+              value={topUpForm.amount}
+              onChange={(event) =>
+                setTopUpForm({ ...topUpForm, amount: event.target.value })
+              }
+            />
+
+            <button type="submit">Pay With Stripe</button>
           </form>
         </div>
       )}
